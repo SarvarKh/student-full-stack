@@ -72,7 +72,7 @@ function App() {
             bordered
             title={() => 'Students'}
             pagination={{ pageSize: 50 }}
-            scroll={{ y: 240 }}
+            scroll={{ y: 350 }}
             rowKey={(student) => student.id}
         />;
     }
