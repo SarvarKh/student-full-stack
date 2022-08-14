@@ -1,15 +1,17 @@
 import {useEffect, useState} from "react";
 import { getAllStudents } from "./client";
 
-import {Table, Layout, Menu, Breadcrumb, Spin, Empty} from 'antd';
+import {Table, Layout, Menu, Breadcrumb, Spin, Empty, Button, Tag, Badge} from 'antd';
 import {
     DesktopOutlined,
     PieChartOutlined,
     FileOutlined,
     TeamOutlined,
     UserOutlined,
-    LoadingOutlined
+    LoadingOutlined,
+    PlusOutlined
 } from '@ant-design/icons';
+import StudentDrawerForm from "./StudentDrawerForm";
 
 import './App.css';
 
@@ -44,6 +46,7 @@ function App() {
     const [students, setStudents] = useState([]);
     const [collapsed, setCollapsed] = useState(false);
     const [fetching, setFetching] = useState(true);
+    const [showDrawer, setShowDrawer] = useState(false);
 
     const fetchStudents = () =>
         getAllStudents()
@@ -66,15 +69,32 @@ function App() {
         if (students.length <= 0) {
             return <Empty />;
         }
-        return <Table
-            dataSource={students}
-            columns={columns}
-            bordered
-            title={() => 'Students'}
-            pagination={{ pageSize: 50 }}
-            scroll={{ y: 350 }}
-            rowKey={(student) => student.id}
-        />;
+        return <>
+            <StudentDrawerForm
+                showDrawer={showDrawer}
+                setShowDrawer={setShowDrawer}
+                fetchStudents={fetchStudents}
+            />
+            <Table
+                dataSource={students}
+                columns={columns}
+                bordered
+                title={() =>
+                    <>
+                        <Tag>Number of students</Tag>
+                        <Badge count={students.length} className="site-badge-count-4"/>
+                        <br/><br/>
+                        <Button
+                            onClick={() => setShowDrawer(!showDrawer)}
+                            type="primary" shape="round" icon={<PlusOutlined />} size="small">
+                            Add New Student
+                        </Button>
+                    </>}
+                pagination={{ pageSize: 50 }}
+                scroll={{ y: 350 }}
+                rowKey={(student) => student.id}
+            />
+        </>;
     }
 
     return <Layout style={{ minHeight: '100vh' }}>

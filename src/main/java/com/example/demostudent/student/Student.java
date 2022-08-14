@@ -29,7 +29,7 @@ public class Student {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    public Student(String name, String email, com.example.demostudent.student.Gender gender) {
+    public Student(String name, String email, Gender gender) {
         this.name = name;
         this.email = email;
         this.gender = gender;
