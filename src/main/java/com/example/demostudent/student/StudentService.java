@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class StudentService {
 
-    private StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
 
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
@@ -18,5 +18,10 @@ public class StudentService {
     public void addStudent(Student student) {
         // check if email is taken
         studentRepository.save(student);
+    }
+
+    public void deleteStudent(Long studentId) {
+        // check if student exists
+        studentRepository.deleteById(studentId);
     }
 }
