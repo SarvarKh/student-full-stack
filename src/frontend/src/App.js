@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {deleteStudent, getAllStudents} from "./client";
 
-import {Table, Layout, Menu, Breadcrumb, Spin, Empty, Button, Tag, Badge, Avatar, Popconfirm, Radio} from 'antd';
+import {Table, Layout, Menu, Breadcrumb, Spin, Empty, Button, Tag, Badge, Avatar, Popconfirm, Radio, Image} from 'antd';
 import {
     DesktopOutlined,
     PieChartOutlined,
@@ -206,7 +206,12 @@ function App() {
                     {renderStudents()}
                 </div>
             </Content>
-            <Footer style={{ textAlign: 'center' }}>By SarvarKhalimov.com</Footer>
+            <Footer style={{ textAlign: 'center' }}>
+                <Image
+                    width={75}
+                    src="https://user-images.githubusercontent.com/60043698/184623863-243145e4-d14c-4101-a896-648841ec2fce.jpeg"
+                />
+            </Footer>
         </Layout>
     </Layout>
 }
