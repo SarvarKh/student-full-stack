@@ -7,11 +7,11 @@ on:
   workflow_dispatch:
 
 env:
-  POSTGRESQL_VERSION: 13.1
+  POSTGRESQL_VERSION: 13.4
   POSTGRESQL_DB: amigoscode
   POSTGRESQL_USER: postgres
   POSTGRESQL_PASSWORD: password
-  JAVA_VERSION: 1.15
+  JAVA_VERSION: 1.17
 
 jobs:
   build:
