@@ -228,6 +228,7 @@ function App() {
                 />
                 <Divider>
                     <a
+                        rel="noopener noreferrer"
                         target="_blank"
                         href="https://github.com/SarvarKh/student-full-stack">Click here</a>
                 </Divider>
